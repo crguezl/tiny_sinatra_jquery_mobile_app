@@ -1,0 +1,11 @@
+%ul.ui-listview{:data => {:role => 'listview', :theme => 'b'}}
+  %li{:data => {:theme => 'a'}}
+    %a{:href => '/new/'} New
+  - @events.each do |event|
+    %li
+      %img{:style => 'float:left;margin:1em;',
+           :src => event.type == 'took' ? '/images/pills.png' : '/images/stethoscope.png'}
+        %div&= event.time.strftime("%Y-%m-%d %H:%M")
+        %div&= "#{event.type}: #{event.description}"
+
+

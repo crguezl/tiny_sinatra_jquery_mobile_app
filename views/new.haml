@@ -1,0 +1,23 @@
+%form{:action => '/new/', :method => 'post', 'data-ajax' => 'false'}
+  %p
+    %label{:for => 'event'} Event
+  %p
+    %fieldset{:data => {:role => 'controlgroup', :type => 'horizontal'}}
+      %input{:type => 'radio', :name => 'type', :id => 'took', :value => 'took', :checked => 'checked'}
+      %label{:for => 'took'} took
+      %input{:type => 'radio', :name => 'type', :id => 'feel', :value => 'feel'}
+      %label{:for => 'feel'} feel
+  %p
+    %label{:for => 'time'} Time
+  %p
+    %input{:name => 'time', :id => 'time', :type => 'date', 'data-role' => 'datebox',
+           :value => Time.now.strftime('%Y-%m-%d %H:%M:%S'),
+           'data-options' => '{"mode": "slidebox", "dateFormat":"YYYY-MM-DD GG:ii", "timeFormat":24, "fieldsOrderOverride":["y","m","d","h","i"]}'}
+  %p
+    %label{ :for => 'description'} Description
+  %p
+    %textarea{:name => 'description', :id => 'description'}
+  %p
+    %a{:href => '/', :data => {:role => 'button', :data => 'true'}} Cancel
+    %button.ui-btn-hidden{:type => 'submit', 'data-theme'=>'a', 'aria-disabled'=>'false'} Save
+
